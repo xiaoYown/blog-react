@@ -4,6 +4,7 @@
   "description": "",
   "dependencies": {
     "autoprefixer": "^6.5.2",
+    "axios": "^0.17.1",
     "babel": "^6.5.2",
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.7",

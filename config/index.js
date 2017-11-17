@@ -6,7 +6,7 @@ module.exports = {
 		env: require('./env.pro'),
 		favicon: path.resolve(__dirname, '../src/assets/images/favicon.ico'),
 		assetsRoot: path.resolve(__dirname, '../dist'),
-		assetsSubDirectory: 'static',
+		assetsSubDirectory: 'static/react',
 		assetsPublicPath: '/',
 		productionSourceMap: false
 	},

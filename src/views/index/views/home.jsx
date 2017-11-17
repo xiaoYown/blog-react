@@ -1,4 +1,49 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import config from 'config/config';
+
+class HomeList extends React.Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      articals: []
+    };
+  }
+  componentWillMount () {
+    this.loadArticals();
+    return {};
+  }
+  loadArticals () {
+    axios.get(config.apiUrl + `/artical/list_blog`)
+      .then(res => {
+        const articals = res.data.data.articals;
+        this.setState({ articals });
+      });
+  }
+  render () {
+    const list = this.state.articals.map((item, index) =>
+      <li key={ index }>
+        <h3 className="home__wrap-list_title">
+          <a href={'/artical/' + item.id}>
+            {item.title}
+          </a>
+        </h3>
+        <div className="home__wrap-list_time">
+          <span>创建 : {item.create_time}</span>
+          <span>更新 : {item.update_time}</span>
+        </div>
+        <p className="home__wrap-list_desc">{item.description}</p>
+      </li>
+    );
+    return (
+      <div className="aside-wrap">
+        <ul className="aside-container">
+          { list }
+        </ul>
+      </div>
+    );
+  }
+};
 
 class home extends React.Component {
   render () {
@@ -28,6 +73,7 @@ class home extends React.Component {
           </ul>
         </div>
         <ul className="home__wrap-list">
+          <HomeList />
         </ul>
       </div>
     );

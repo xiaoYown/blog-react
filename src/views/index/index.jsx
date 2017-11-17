@@ -55,7 +55,7 @@ const requireAuth = (nextState, replace) => {
 const routers = (
   <AppCmpt>
     <Router history={ browserHistory }>
-      <Route path="/" component={ Index }>
+      <Route path="/react" component={ Index }>
         <IndexRoute component={ homeCmpt }/>
       </Route>
     </Router>
